@@ -5,22 +5,48 @@ import Problem_3
 
 def menu():
     print("0 - Exit the program")
-    print("1 - Problem 1 Multiples of 3 or 5")
+    print("1 - Problem 1 Sum of Multiples")
     print("2 - Problem 2 Even Fibonacci numbers")
     print("3 - Problem 3 Largest Prime Factor")
+
+def check_input_is_int(value):
+    try:
+        value=int(value)
+    except ValueError:
+        raise ValueError("Value must be an integer")
+    finally:
+        pass
+
+def check_input_is_postive(value):
+    try:
+        if value<0:
+            raise ValueError("Value entered must be positive")
+    finally:
+        pass
+
+def verify_input(value):
+    try:
+        check_input_is_int(value)
+        check_input_is_postive(value)
+    except ValueError:
+        print("Value entered must be positive integer")
+    finally:
+        pass
 
 def Main():
     print("Welcome to solutions to Project Euler")
     menu()
-    problem_set = int(input("Which problem set do you want the answer to?"))
+    problem_set = input("Which problem set do you want the answer to?")
+    verify_input(problem_set)
+    problem_set=int(problem_set)
     while problem_set != 0:
-        if problem_set < 1:
-            raise ValueError("Your selection must be a positive integer")
-        if type(problem_set) != int:
-            raise TypeError("Your selection must be a positive integer")
+        
         if problem_set == 1:
+            prob1_max = int(input("What is the highest natual number to include?"))
+            prob1_multi1 = int(input("What is the first value for the multiples?"))
+            prob1_multi2 = int(input("What is the second value for the multiples?"))
             start_time = time.perf_counter()
-            Problem_1.prob1()
+            print(Problem_1.prob1(prob1_max, prob1_multi1, prob1_multi2))
             end_time = time.perf_counter()
             print(f"This took {end_time - start_time:0.4f} seconds")
         elif problem_set == 2:

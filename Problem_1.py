@@ -1,8 +1,9 @@
-def prob1():
+def prob1(max_num, multi1, multi2):
 
     total = 0
     
-    for number in range(1,1000):
-        if number%5 == 0 or number%3 == 0:
+    for number in range(1,max_num):
+        if number%multi1 == 0 or number%multi2 == 0:
             total = total + number
     print(total)
+    return total

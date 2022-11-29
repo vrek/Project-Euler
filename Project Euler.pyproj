@@ -11,6 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>Project Euler</Name>
     <RootNamespace>Project Euler</RootNamespace>
+    <TestFramework>unittest</TestFramework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -25,6 +26,9 @@
     <Compile Include="Problem_3.py" />
     <Compile Include="Problem_2.py" />
     <Compile Include="Problem_1.py" />
+    <Compile Include="Problem_1_test.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

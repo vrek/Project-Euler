@@ -4,4 +4,4 @@ def prob3(value):
         while value % divisor == 0:
             value = value / divisor
         divisor = divisor + 1
-    print(value)
+    return value

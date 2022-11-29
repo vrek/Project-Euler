@@ -26,6 +26,6 @@ def prob2(max_value):
             fib_total += nextTerm
         n += 1
     
-    print(fib_total)
+    return fib_total
 
 

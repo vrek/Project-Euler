@@ -2,27 +2,27 @@ import time
 import Problem_1
 import Problem_2
 import Problem_3
+import Problem_4
 
 def menu():
     print("0 - Exit the program")
     print("1 - Problem 1 Sum of Multiples")
     print("2 - Problem 2 Even Fibonacci numbers")
     print("3 - Problem 3 Largest Prime Factor")
+    print("4 - Problem 4 Largest Palidrome Product")
 
 def check_input_is_int(value):
     try:
         value=int(value)
     except ValueError:
-        raise ValueError("Value must be an integer")
+        print("Value must be an integer")
     finally:
         pass
 
 def check_input_is_postive(value):
-    try:
-        if value<0:
-            raise ValueError("Value entered must be positive")
-    finally:
-        pass
+    if value<0:
+        print("Value entered must be positive")
+
 
 def verify_input(value):
     try:
@@ -51,12 +51,17 @@ def Main():
             print(f"This took {end_time - start_time:0.4f} seconds")
         elif problem_set == 2:
             start_time = time.perf_counter()
-            Problem_2.prob2(int(input("What is this highest value for fibonacci you want?")))
+            print(Problem_2.prob2(int(input("What is this highest value for fibonacci you want?"))))
             end_time = time.perf_counter()
             print(f"This took {end_time - start_time:0.4f} seconds")
         elif problem_set == 3:
             start_time = time.perf_counter()
-            Problem_3.prob3(int(input("What is this number do you want the largest prime factor for?")))
+            print(Problem_3.prob3(int(input("What is the number you want the largest prime factor for?"))))
+            end_time = time.perf_counter()
+            print(f"This took {end_time - start_time:0.4f} seconds")
+        elif problem_set == 4:
+            start_time = time.perf_counter()
+            print(Problem_4.prob4(int(input("How many decimal places should the starting numbers be?"))))
             end_time = time.perf_counter()
             print(f"This took {end_time - start_time:0.4f} seconds")
         else:

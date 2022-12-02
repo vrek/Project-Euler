@@ -1,31 +1,25 @@
+"""finds  the sum of all even fibonacci numbers below max_value"""
 def prob2(max_value):
     from functools import lru_cache
-    
     fib_total = 0
-    fib_value = 0
-    n = 1
-    
+    num = 1
     @lru_cache(maxsize = 1000)
-    def fibonacci(n):
-        if type(n) != int:
+    def fibonacci(num):
+        if not isinstance(num, int):
             raise TypeError("n must be a positive int")
-        if n < 1:
+        if num < 1:
             raise ValueError("n must be a positive int")
-    
-        if n==1 or n==2:
+        if num==1 or num==2:
             return 1
-        elif n>2:
-            return fibonacci(n-1)+fibonacci(n-2)
-    
-    
+        elif num>2:
+            return fibonacci(num-1)+fibonacci(num-2)
     while True:
-        nextTerm = fibonacci(n)
+        nextTerm = fibonacci(num)
         if nextTerm > max_value:
             break
         if nextTerm % 2 == 0:
             fib_total += nextTerm
-        n += 1
-    
+        num += 1
     return fib_total
 
 
